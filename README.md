@@ -4,7 +4,7 @@ IT-Hui
 
 <div align="center">
   
-![Banner](../assets/photo/logo.png)
+![Banner](it-hui.github.io/assets/photo/logo.png)
 
 ### **Совершенно бесплатные IT-ресурсы для всех!**
 
