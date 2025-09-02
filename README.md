@@ -1,89 +1,103 @@
-# <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExb2F4dWl4d2F0c2x6eGd0a3Z0c2N4N2R4d2l2b2VqZmZ1bnJmYnBibyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/26tn33aiTi1jkl6H6/giphy.gif" width="50"> IT-Hui
-
-> **Совершенно бесплатные IT-ресурсы для всех!**
-
-[![Telegram Channel](https://img.shields.io/badge/Telegram-Join%20Channel-blue?style=for-the-badge&logo=telegram)](https://t.me/your_channel)
-[![Website Status](https://img.shields.io/website?down_message=offline&label=Website&style=for-the-badge&up_message=online&url=https%3A%2F%2Fexample.com)](https://yourwebsite.com)
-
+<div align="center">🚀 IT-Hui</div>
 <div align="center">
-  
-![IT-Hui Banner](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExZXg2M2JtZ2RlZ2V4eGJ0c3R2Z3BqZ2V6eHh2dGx0c2NqZ2Z2bGZ6ZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/LMcB8XospGZO8UQq87/giphy.gif)
+https://img.shields.io/badge/version-1.0.0-blue?style=for-the-badge
+https://img.shields.io/badge/status-active-brightgreen?style=for-the-badge
+https://img.shields.io/badge/members-4-orange?style=for-the-badge
+
+Совершенно бесплатные IT-ресурсы для всех!
+
+https://img.shields.io/badge/Telegram-Join%2520Community-2CA5E0?style=for-the-flat&logo=telegram&logoColor=white
+https://img.shields.io/badge/Website-Visit%2520Us-FF7139?style=for-the-flat&logo=firefox-browser&logoColor=white
 
 </div>
-
-## 🚀 О нас
-
-Мы — **IT-Hui**, команда энтузиастов, создающая полностью **бесплатную** платформу с онлайн-курсами, учебными материалами и многим другим для всех, кто интересуется IT.
+✨ О нас
+Мы — IT-Hui, небольшая, но амбициозная команда из 4 энтузиастов, создающая полностью бесплатную образовательную платформу. Мы участвуем в хакатонах, разрабатываем интересные проекты и помогаем друг другу расти в IT-сфере.
 
 <div align="center">
-  
-![Coding GIF](https://media.giphy.com/media/coxQHKASG60HrHtvkt/giphy.gif)
+🛠 Наша команда:
+
+Роль	Специализация
+👑 Тимлид	Управление проектом
+🎨 Frontend	React, Vue, Angular
+⚙️ Backend	Node.js, Python, Databases
+🎯 UI/UX	Дизайн и用户体验
+</div>
+🌟 Что мы предлагаем
+<div align="center">
+graph LR
+A[🎓 Бесплатные курсы] --> D[Пользователи]
+B[📚 Обучающие материалы] --> D
+C[🤝 Поддержка сообщества] --> D
+</div>
+🎓 Полностью бесплатные IT-курсы
+
+📖 Актуальные учебные материалы и документация
+
+🎯 Практические задания и реальные проекты
+
+🚀 Участие в хакатонах и конкурсах
+
+🤝 Взаимопомощь и поддержка сообщества
+
+🛠 Технологический стек
+<div align="center">
+Frontend:
+
+
+<img src="https://img.shields.io/badge/React-20232A?style=flat-square&logo=react&logoColor=61DAFB" alt="React">
+<img src="https://img.shields.io/badge/Vue.js-4FC08D?style=flat-square&logo=vue.js&logoColor=white" alt="Vue">
+<img src="https://img.shields.io/badge/TypeScript-007ACC?style=flat-square&logo=typescript&logoColor=white" alt="TypeScript">
+
+Backend:
+
+
+<img src="https://img.shields.io/badge/Node.js-339933?style=flat-square&logo=nodedotjs&logoColor=white" alt="Node.js">
+<img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white" alt="Python">
+<img src="https://img.shields.io/badge/PostgreSQL-316192?style=flat-square&logo=postgresql&logoColor=white" alt="PostgreSQL">
+
+Design:
+
+
+<img src="https://img.shields.io/badge/Figma-F24E1E?style=flat-square&logo=figma&logoColor=white" alt="Figma">
+<img src="https://img.shields.io/badge/Adobe%20XD-470137?style=flat-square&logo=Adobe%20XD&logoColor=#FF61F6" alt="Adobe XD">
 
 </div>
-
-## 📚 Что мы предлагаем
-
-- 🆓 **Полностью бесплатные** курсы по программированию
-- 📖 Обучающие материалы и документация
-- 🎯 Практические задания и проекты
-- 🤝 Поддержка сообщества
-
+📊 Наши проекты
 <div align="center">
-  
-![Learning GIF](https://media.giphy.com/media/3o7TKSjRrfIPjeiVyM/giphy.gif)
+Проект	Статус	Технологии
+🎓 Образовательная платформа	В разработке	React, Node.js, MongoDB
+🏆 Хакатон проекты	Завершено	Various
+📱 UI/UX библиотека	Планируется	Figma, CSS3
+</div>
+👥 Присоединяйтесь к нам!
+<div align="center">
+Мы всегда рады новым участникам! Присоединяйтесь к нашему Telegram-сообществу:
+
+https://img.shields.io/badge/%F0%9F%92%AC_Telegram_Community-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white
 
 </div>
-
-## 📊 Наша статистика
-
-<!-- Если у вас пока нет реальной статистики, можете удалить этот раздел -->
-| Курсы | Пользователи | Материалы |
-|:-----:|:------------:|:---------:|
-|  15+  |     500+     |    50+    |
+🌍 Наша миссия
+Мы верим, что качественное IT-образование должно быть доступно каждому. Наша цель — создать сообщество, где можно учиться, развиваться и расти как специалист, участвовать в интересных проектах и находить единомышленников.
 
 <div align="center">
-  
-![Growth GIF](https://media.giphy.com/media/3ohzdIuqJoo8QdKlnW/giphy.gif)
+⭐ Звездуйте наш репозиторий, если поддерживаете нашу идею!
+
+https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png
+
+Вместе мы сможем больше! 🚀
 
 </div>
-
-## 🛠 Технологии которые мы покрываем
-
-<p align="center">
-  <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python">
-  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript">
-  <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="HTML5">
-  <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" alt="CSS3">
-  <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React">
-  <img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white" alt="Node.js">
-</p>
-
+📬 Контакты
 <div align="center">
-  
-![Tech GIF](https://media.giphy.com/media/2Ygy0khwewLgMSYM0t/giphy.gif)
+По вопросам сотрудничества и предложений:
+
+https://img.shields.io/badge/Email-Contact%2520Us-D14836?style=flat-square&logo=gmail&logoColor=white
+https://img.shields.io/badge/Telegram-Write%2520Us-2CA5E0?style=flat-square&logo=telegram&logoColor=white
 
 </div>
-
-## 📞 Связь с нами
-
-Присоединяйтесь к нашему Telegram-сообществу для обсуждения, вопросов и поддержки!
-
-[![Telegram Chat](https://img.shields.io/badge/Telegram-Join%20Chat-blue?style=for-the-badge&logo=telegram)](https://t.me/your_chat)
-
 <div align="center">
-  
-![Community GIF](https://media.giphy.com/media/j2NDJZct5aXPzQItQ9/giphy.gif)
+© 2024 IT-Hui • Лицензия MIT
 
-</div>
-
-## 🌟 Наша миссия
-
-> Мы верим, что качественное IT-образование должно быть доступно каждому совершенно бесплатно. Наша цель — создать сообщество, где каждый может учиться, развиваться и расти как специалист.
-
-<div align="center">
-
-![Star GIF](https://media.giphy.com/media/3o7abGQa0aRsohveX6/giphy.gif)
-
-**Присоединяйтесь к нам в этом путешествии!** 🚀
+https://capsule-render.vercel.app/api?type=waving&color=gradient&height=100&section=footer
 
 </div>
