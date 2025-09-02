@@ -1,15 +1,15 @@
 <p align="center">
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=30&duration=4000&pause=1000&color=7E3FEB&center=true&vCenter=true&width=500&lines=IT-Hui;IT+энтузиасты;Образовательные+проекты;Участвуем+в+хакатонах;Помогаем+расти+в+IT" alt="Анимированный заголовок" />
+IT-Hui
 </p>
 
 <div align="center">
   
-![Banner](https://i.imgur.com/zyR6HkD.png)
+![Banner](../assets/photo/logo.png)
 
 ### **Совершенно бесплатные IT-ресурсы для всех!**
 
 [![Telegram](https://img.shields.io/badge/Telegram-Join%20Chat-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/your_channel)
-[![Website](https://img.shields.io/badge/Website-Visit%20Us-7E3FEB?style=for-the-badge&logo=google-chrome&logoColor=white)](https://yourwebsite.com)
+[![Website](https://img.shields.io/badge/Website-Visit%20Us-7E3FEB?style=for-the-badge&logo=google-chrome&logoColor=white)](https://uncledeniy.github.io/it-hui.github.io/index.html)
 
 </div>
 
