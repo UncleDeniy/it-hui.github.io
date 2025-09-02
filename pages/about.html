@@ -5,6 +5,298 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>О нас - IT-Hui Community</title>
     <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Дополнительные стили для страницы "О нас" */
+        .about-hero {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .about-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 20% 50%, rgba(110, 68, 255, 0.15), transparent 30%),
+                        radial-gradient(circle at 80% 80%, rgba(255, 68, 167, 0.1), transparent 30%);
+            z-index: -1;
+        }
+        
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 20px;
+        }
+        
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background: linear-gradient(to bottom, var(--primary-color), var(--secondary-color));
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+            border-radius: 10px;
+        }
+        
+        .timeline-item {
+            position: relative;
+            width: 50%;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.5s, transform 0.5s;
+            margin-bottom: 3rem;
+        }
+        
+        .timeline-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .timeline-item:nth-child(odd) {
+            left: 0;
+            padding-right: 40px;
+        }
+        
+        .timeline-item:nth-child(even) {
+            left: 50%;
+            padding-left: 40px;
+        }
+        
+        .timeline-content {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            position: relative;
+        }
+        
+        .timeline-content::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: var(--primary-color);
+            top: 50%;
+            transform: translateY(-50%) rotate(45deg);
+            border-radius: 4px;
+        }
+        
+        .timeline-item:nth-child(odd) .timeline-content::after {
+            right: -10px;
+        }
+        
+        .timeline-item:nth-child(even) .timeline-content::after {
+            left: -10px;
+        }
+        
+        .timeline-date {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            border-radius: 20px;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+        
+        .timeline-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-color);
+        }
+        
+        .values-section {
+            padding: 5rem 0;
+            background: var(--darker-bg);
+        }
+        
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .value-card {
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        .value-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .value-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+        }
+        
+        .value-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            border-radius: 50%;
+            font-size: 2rem;
+            color: white;
+        }
+        
+        .value-title {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--text-color);
+        }
+        
+        .stats-section {
+            padding: 5rem 0;
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            color: white;
+            text-align: center;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .stat-item {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        .stat-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            display: inline-block;
+            padding: 0.5rem 1.5rem;
+            border-radius: 15px;
+        }
+        
+        .stat-label {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        .join-community {
+            padding: 5rem 0;
+            text-align: center;
+            background: var(--dark-bg);
+        }
+        
+        .join-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--card-bg);
+            color: var(--text-color);
+            font-size: 1.5rem;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+        
+        .social-link:hover {
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(110, 68, 255, 0.3);
+        }
+        
+        .discord-embed {
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem auto;
+            max-width: 600px;
+            text-align: left;
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .discord-icon {
+            font-size: 3rem;
+            color: #5865F2;
+            flex-shrink: 0;
+        }
+        
+        .discord-content h3 {
+            margin-bottom: 0.5rem;
+            color: var(--text-color);
+        }
+        
+        .discord-content p {
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
+        
+        /* Адаптивность */
+        @media (max-width: 768px) {
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 0;
+            }
+            
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+            
+            .timeline-content::after {
+                left: -10px !important;
+                right: auto !important;
+            }
+            
+            .discord-embed {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
 </head>
 <body>
     <nav>
@@ -23,41 +315,167 @@
         </div>
     </nav>
     
-    <section class="hero">
+    <section class="hero about-hero">
         <div class="container">
             <h1>О нашем сообществе</h1>
-            <p>Узнайте больше о IT-Hui Community, нашей миссии и ценностях.</p>
+            <p>Узнайте больше о IT-Hui Community, нашей миссии, ценностях и истории развития.</p>
+            <a href="#history" class="cta-button">Узнать больше</a>
         </div>
     </section>
 
-    <section class="about">
+    <section class="about" id="history">
         <div class="container">
-            <div class="about-content">
-                <h2>Наша история</h2>
-                <p>Подробная история создания и развития сообщества...</p>
+            <h2 class="section-title">Наша <span>история</span></h2>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="timeline-date">Январь 2023</span>
+                        <h3 class="timeline-title">Основание сообщества</h3>
+                        <p>Группа энтузиастов объединилась с целью создания пространства для разработчиков, где можно делиться знаниями и создавать инновационные проекты.</p>
+                    </div>
+                </div>
                 
-                <h2>Наша миссия</h2>
-                <p>Описание миссии и целей сообщества...</p>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="timeline-date">Апрель 2023</span>
+                        <h3 class="timeline-title">Первый митап</h3>
+                        <p>Провели первое оффлайн-мероприятие с участием 50 разработчиков. Обсудили тренды веб-разработки и запустили первый совместный проект.</p>
+                    </div>
+                </div>
                 
-                <h2>Принципы сообщества</h2>
-                <ul>
-                    <li>Открытость и сотрудничество</li>
-                    <li>Обмен знаниями и опытом</li>
-                    <li>Поддержка начинающих разработчиков</li>
-                    <li>Создание качественного open-source</li>
-                </ul>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="timeline-date">Сентябрь 2023</span>
+                        <h3 class="timeline-title">Запуск платформы</h3>
+                        <p>Разработали и запустили собственную платформу для collaboration, что позволило участникам эффективнее работать над общими проектами.</p>
+                    </div>
+                </div>
                 
-                <h2>Присоединяйтесь к нам</h2>
-                <p>Как стать частью нашего сообщества...</p>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="timeline-date">Январь 2024</span>
+                        <h3 class="timeline-title">Хакатон #1</h3>
+                        <p>Провели первый масштабный хакатон с участием более 100 разработчиков. Было создано 15 инновационных проектов с открытым исходным кодом.</p>
+                    </div>
+                </div>
                 
-                <div style="text-align: center; margin-top: 2rem;">
-                    <a href="https://discord.gg/it-hui" class="cta-button">Присоединиться к Discord</a>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="timeline-date">Настоящее время</span>
+                        <h3 class="timeline-title">Активное развитие</h3>
+                        <p>Сообщество продолжает расти, привлекая талантливых разработчиков и создавая проекты, которые меняют digital-пространство к лучшему.</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
     
-<footer>
+    <section class="values-section">
+        <div class="container">
+            <h2 class="section-title">Наши <span>ценности</span></h2>
+            
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3 class="value-title">Сотрудничество</h3>
+                    <p>Мы верим в силу командной работы и открытого обмена знаниями для достижения выдающихся результатов.</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3 class="value-title">Инновации</h3>
+                    <p>Поощряем креативное мышление и эксперименты для создания прорывных технологических решений.</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3 class="value-title">Обучение</h3>
+                    <p>Создаем среду для непрерывного развития и профессионального роста каждого участника сообщества.</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-code-branch"></i>
+                    </div>
+                    <h3 class="value-title">Open Source</h3>
+                    <p>Поддерживаем философию открытого кода и вносим вклад в развитие технологического сообщества.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="stats-section">
+        <div class="container">
+            <h2 class="section-title">Мы в <span>цифрах</span></h2>
+            
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number" id="membersCount">0</div>
+                    <div class="stat-label">Участников</div>
+                </div>
+                
+                <div class="stat-item">
+                    <div class="stat-number" id="projectsCount">0</div>
+                    <div class="stat-label">Проектов</div>
+                </div>
+                
+                <div class="stat-item">
+                    <div class="stat-number" id="eventsCount">0</div>
+                    <div class="stat-label">Мероприятий</div>
+                </div>
+                
+                <div class="stat-item">
+                    <div class="stat-number" id="contributionsCount">0</div>
+                    <div class="stat-label">Контрибьюшнов</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="join-community">
+        <div class="container">
+            <h2 class="section-title">Присоединяйтесь <span>к нам</span></h2>
+            
+            <div class="join-content">
+                <p>Станьте частью нашего растущего сообщества разработчиков, создающих будущее вместе.</p>
+                
+                <div class="social-links">
+                    <a href="https://discord.gg/it-hui" class="social-link">
+                        <i class="fab fa-discord"></i>
+                    </a>
+                    <a href="https://github.com/IT-Hui-Community" class="social-link">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://t.me/it_hui_community" class="social-link">
+                        <i class="fab fa-telegram"></i>
+                    </a>
+                    <a href="https://vk.com/it_hui" class="social-link">
+                        <i class="fab fa-vk"></i>
+                    </a>
+                </div>
+                
+                <div class="discord-embed">
+                    <div class="discord-icon">
+                        <i class="fab fa-discord"></i>
+                    </div>
+                    <div class="discord-content">
+                        <h3>Наш Discord сервер</h3>
+                        <p>Присоединяйтесь к нашему активному Discord-сообществу, где мы обсуждаем проекты, помогаем друг другу и проводим голосования.</p>
+                        <a href="https://discord.gg/it-hui" class="cta-button">Присоединиться</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
         <div class="container">
             <div class="footer-logo">IT-<span>Hui</span></div>
             <ul class="footer-links">
@@ -70,5 +488,80 @@
             <p class="copyright">© 2025 IT-Hui Community. Все права защищены.</p>
         </div>
     </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Анимация появления элементов при скролле
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, observerOptions);
+            
+            // Наблюдаем за элементами таймлайна
+            document.querySelectorAll('.timeline-item').forEach(item => {
+                observer.observe(item);
+            });
+            
+            // Наблюдаем за карточками ценностей
+            document.querySelectorAll('.value-card').forEach(card => {
+                observer.observe(card);
+            });
+            
+            // Наблюдаем за статистикой
+            document.querySelectorAll('.stat-item').forEach(stat => {
+                observer.observe(stat);
+            });
+            
+            // Анимация счетчиков
+            function animateCounter(elementId, finalValue, duration) {
+                const element = document.getElementById(elementId);
+                const startValue = 0;
+                const increment = Math.ceil(finalValue / (duration / 16)); // 16ms per frame ~60fps
+                let currentValue = startValue;
+                
+                const timer = setInterval(() => {
+                    currentValue += increment;
+                    if (currentValue >= finalValue) {
+                        clearInterval(timer);
+                        currentValue = finalValue;
+                    }
+                    element.textContent = currentValue.toLocaleString();
+                }, 16);
+            }
+            
+            // Запускаем анимацию счетчиков когда они появляются в viewport
+            const statsObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animateCounter('membersCount', 250, 2000);
+                        animateCounter('projectsCount', 18, 2000);
+                        animateCounter('eventsCount', 12, 2000);
+                        animateCounter('contributionsCount', 1500, 2000);
+                        statsObserver.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+            
+            // Наблюдаем за секцией статистики
+            const statsSection = document.querySelector('.stats-section');
+            if (statsSection) {
+                statsObserver.observe(statsSection);
+            }
+            
+            // Обработчик для мобильного меню
+            document.querySelector('.hamburger').addEventListener('click', function() {
+                document.querySelector('.nav-links').classList.toggle('active');
+            });
+        });
+    </script>
 </body>
 </html>
