@@ -4,11 +4,94 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>О нас - IT-Hui Community</title>
-    <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Дополнительные стили для страницы "О нас" */
-        .about-hero {
+        :root {
+            --primary-color: #6e44ff;
+            --secondary-color: #ff44a7;
+            --dark-bg: #121212;
+            --darker-bg: #0a0a0a;
+            --card-bg: #1e1e1e;
+            --text-color: #f0f0f0;
+            --text-muted: #a0a0a0;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--dark-bg);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+         
+        nav {
+            background-color: rgba(18, 18, 18, 0.9);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            text-decoration: none;
+            color: var(--text-color);
+        }
+        
+        .logo span {
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li a {
+            color: var(--text-color);
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            transition: color 0.3s;
+        }
+        
+        .nav-links li a:hover {
+            color: var(--primary-color);
+        }
+        
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+        }
+         
+        .hero {
+            padding: 8rem 0 4rem;
+            text-align: center;
             position: relative;
             overflow: hidden;
         }
@@ -25,98 +108,111 @@
             z-index: -1;
         }
         
-        .timeline {
-            position: relative;
-            max-width: 1200px;
-            margin: 4rem auto;
-            padding: 0 20px;
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            display: inline-block;
         }
         
-        .timeline::after {
-            content: '';
-            position: absolute;
-            width: 6px;
-            background: linear-gradient(to bottom, var(--primary-color), var(--secondary-color));
-            top: 0;
-            bottom: 0;
-            left: 50%;
-            margin-left: -3px;
-            border-radius: 10px;
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            color: var(--text-muted);
         }
         
-        .timeline-item {
-            position: relative;
-            width: 50%;
-            opacity: 0;
-            transform: translateY(50px);
-            transition: opacity 0.5s, transform 0.5s;
+        .cta-button {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(110, 68, 255, 0.3);
+        }
+         
+        section {
+            padding: 5rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
             margin-bottom: 3rem;
         }
         
-        .timeline-item.visible {
+        .section-title span {
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+         
+        .team-section {
+            background-color: var(--darker-bg);
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .team-member {
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        .team-member.visible {
             opacity: 1;
             transform: translateY(0);
         }
         
-        .timeline-item:nth-child(odd) {
-            left: 0;
-            padding-right: 40px;
+        .team-member:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
         }
         
-        .timeline-item:nth-child(even) {
-            left: 50%;
-            padding-left: 40px;
-        }
-        
-        .timeline-content {
-            background: var(--card-bg);
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            position: relative;
-        }
-        
-        .timeline-content::after {
-            content: '';
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            background: var(--primary-color);
-            top: 50%;
-            transform: translateY(-50%) rotate(45deg);
-            border-radius: 4px;
-        }
-        
-        .timeline-item:nth-child(odd) .timeline-content::after {
-            right: -10px;
-        }
-        
-        .timeline-item:nth-child(even) .timeline-content::after {
-            left: -10px;
-        }
-        
-        .timeline-date {
-            display: inline-block;
-            padding: 0.5rem 1rem;
+        .member-avatar {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            border-radius: 50%;
+            font-size: 3rem;
             color: white;
-            border-radius: 20px;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            font-size: 0.9rem;
         }
         
-        .timeline-title {
+        .member-name {
             font-size: 1.5rem;
-            margin-bottom: 1rem;
+            margin-bottom: 0.5rem;
             color: var(--text-color);
         }
         
-        .values-section {
-            padding: 5rem 0;
-            background: var(--darker-bg);
+        .member-role {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-weight: 600;
         }
-        
+         
         .values-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -162,57 +258,41 @@
             margin-bottom: 1rem;
             color: var(--text-color);
         }
-        
-        .stats-section {
-            padding: 5rem 0;
-            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
-            color: white;
-            text-align: center;
+         
+        .projects-section {
+            background-color: var(--darker-bg);
         }
         
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-        
-        .stat-item {
+        .project-card {
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
             opacity: 0;
             transform: translateY(30px);
         }
         
-        .stat-item.visible {
+        .project-card.visible {
             opacity: 1;
             transform: translateY(0);
         }
         
-        .stat-number {
-            font-size: 3rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            background: rgba(255, 255, 255, 0.1);
+        .project-title {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--text-color);
+        }
+        
+        .project-status {
             display: inline-block;
-            padding: 0.5rem 1.5rem;
-            border-radius: 15px;
+            padding: 0.3rem 1rem;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
         }
-        
-        .stat-label {
-            font-size: 1.1rem;
-            opacity: 0.9;
-        }
-        
-        .join-community {
-            padding: 5rem 0;
-            text-align: center;
-            background: var(--dark-bg);
-        }
-        
-        .join-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
+         
         .social-links {
             display: flex;
             justify-content: center;
@@ -241,7 +321,7 @@
             box-shadow: 0 10px 20px rgba(110, 68, 255, 0.3);
         }
         
-        .discord-embed {
+        .telegram-embed {
             background: var(--card-bg);
             border-radius: 15px;
             padding: 2rem;
@@ -254,46 +334,100 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
         }
         
-        .discord-icon {
+        .telegram-icon {
             font-size: 3rem;
-            color: #5865F2;
+            color: #0088cc;
             flex-shrink: 0;
         }
         
-        .discord-content h3 {
+        .telegram-content h3 {
             margin-bottom: 0.5rem;
             color: var(--text-color);
         }
         
-        .discord-content p {
+        .telegram-content p {
             color: var(--text-muted);
             margin-bottom: 1rem;
         }
+         
+        footer {
+            background-color: var(--darker-bg);
+            padding: 3rem 0;
+            text-align: center;
+        }
         
-        /* Адаптивность */
+        .footer-logo {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer-logo span {
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .footer-links li a {
+            color: var(--text-color);
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            transition: color 0.3s;
+        }
+        
+        .footer-links li a:hover {
+            color: var(--primary-color);
+        }
+        
+        .copyright {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        } 
         @media (max-width: 768px) {
-            .timeline::after {
-                left: 31px;
-            }
-            
-            .timeline-item {
-                width: 100%;
-                padding-left: 70px;
-                padding-right: 0;
-            }
-            
-            .timeline-item:nth-child(even) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
                 left: 0;
+                width: 100%;
+                background-color: var(--dark-bg);
+                padding: 1rem 0;
             }
             
-            .timeline-content::after {
-                left: -10px !important;
-                right: auto !important;
+            .nav-links.active {
+                display: flex;
             }
             
-            .discord-embed {
+            .hamburger {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .telegram-embed {
                 flex-direction: column;
                 text-align: center;
+            }
+            
+            .footer-links {
+                flex-direction: column;
+                align-items: center;
             }
         }
     </style>
@@ -304,8 +438,7 @@
             <a href="../index.html" class="logo">IT-<span>Hui</span></a>
             <ul class="nav-links">
                 <li><a href="../index.html">Главная</a></li>
-                <li><a href="members.html">Участники</a></li>
-                <li><a href="events.html">Мероприятия</a></li>
+                <li><a href="members.html">Участники</a></li> 
                 <li><a href="projects.html">Проекты</a></li>
                 <li><a href="#">О нас</a></li>
             </ul>
@@ -318,54 +451,51 @@
     <section class="hero about-hero">
         <div class="container">
             <h1>О нашем сообществе</h1>
-            <p>Узнайте больше о IT-Hui Community, нашей миссии, ценностях и истории развития.</p>
-            <a href="#history" class="cta-button">Узнать больше</a>
+            <p>Мы - небольшая, но целеустремленная команда, создающая бесплатные образовательные ресурсы для разработчиков.</p>
+            <a href="#team" class="cta-button">Знакомство с командой</a>
         </div>
     </section>
 
-    <section class="about" id="history">
+    <section id="team">
         <div class="container">
-            <h2 class="section-title">Наша <span>история</span></h2>
+            <h2 class="section-title">Наша <span>команда</span></h2>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 3rem;">Мы всего лишь четверо энтузиастов, но мы полностью отдаемся нашему проекту по созданию бесплатных образовательных материалов</p>
             
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <span class="timeline-date">Январь 2023</span>
-                        <h3 class="timeline-title">Основание сообщества</h3>
-                        <p>Группа энтузиастов объединилась с целью создания пространства для разработчиков, где можно делиться знаниями и создавать инновационные проекты.</p>
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="member-avatar">
+                        <i class="fas fa-crown"></i>
                     </div>
+                    <h3 class="member-name">Денис</h3>
+                    <p class="member-role">Team Lead, FullStack</p>
+                    <p>Координирует работу команды и следит за развитием проекта</p>
                 </div>
                 
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <span class="timeline-date">Апрель 2023</span>
-                        <h3 class="timeline-title">Первый митап</h3>
-                        <p>Провели первое оффлайн-мероприятие с участием 50 разработчиков. Обсудили тренды веб-разработки и запустили первый совместный проект.</p>
+                <div class="team-member">
+                    <div class="member-avatar">
+                        <i class="fas fa-code"></i>
                     </div>
+                    <h3 class="member-name">Илья</h3>
+                    <p class="member-role">Frontend Developer</p>
+                    <p>Создает интерфейсы и отвечает за пользовательский опыт</p>
                 </div>
                 
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <span class="timeline-date">Сентябрь 2023</span>
-                        <h3 class="timeline-title">Запуск платформы</h3>
-                        <p>Разработали и запустили собственную платформу для collaboration, что позволило участникам эффективнее работать над общими проектами.</p>
+                <div class="team-member">
+                    <div class="member-avatar">
+                        <i class="fas fa-server"></i>
                     </div>
+                    <h3 class="member-name">Артём</h3>
+                    <p class="member-role">Backend Developer</p>
+                    <p>Разрабатывает серверную часть и обеспечивает работу API</p>
                 </div>
                 
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <span class="timeline-date">Январь 2024</span>
-                        <h3 class="timeline-title">Хакатон #1</h3>
-                        <p>Провели первый масштабный хакатон с участием более 100 разработчиков. Было создано 15 инновационных проектов с открытым исходным кодом.</p>
+                <div class="team-member">
+                    <div class="member-avatar">
+                        <i class="fas fa-paint-brush"></i>
                     </div>
-                </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <span class="timeline-date">Настоящее время</span>
-                        <h3 class="timeline-title">Активное развитие</h3>
-                        <p>Сообщество продолжает расти, привлекая талантливых разработчиков и создавая проекты, которые меняют digital-пространство к лучшему.</p>
-                    </div>
+                    <h3 class="member-name">Саша</h3>
+                    <p class="member-role">UI/UX Designer</p>
+                    <p>Создает дизайн и обеспечивает удобство использования</p>
                 </div>
             </div>
         </div>
@@ -378,63 +508,54 @@
             <div class="values-grid">
                 <div class="value-card">
                     <div class="value-icon">
-                        <i class="fas fa-handshake"></i>
+                        <i class="fas fa-graduation-cap"></i>
                     </div>
-                    <h3 class="value-title">Сотрудничество</h3>
-                    <p>Мы верим в силу командной работы и открытого обмена знаниями для достижения выдающихся результатов.</p>
+                    <h3 class="value-title">Бесплатное образование</h3>
+                    <p>Мы убеждены, что качественные знания должны быть доступны каждому, независимо от финансовых возможностей.</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="value-title">Сообщество</h3>
+                    <p>Мы верим в силу объединения людей для совместного обучения и создания проектов.</p>
                 </div>
                 
                 <div class="value-card">
                     <div class="value-icon">
                         <i class="fas fa-lightbulb"></i>
                     </div>
-                    <h3 class="value-title">Инновации</h3>
-                    <p>Поощряем креативное мышление и эксперименты для создания прорывных технологических решений.</p>
+                    <h3 class="value-title">Практичность</h3>
+                    <p>Мы фокусируемся на практических навыках, которые действительно полезны в реальной работе.</p>
                 </div>
                 
                 <div class="value-card">
                     <div class="value-icon">
-                        <i class="fas fa-graduation-cap"></i>
+                        <i class="fas fa-heart"></i>
                     </div>
-                    <h3 class="value-title">Обучение</h3>
-                    <p>Создаем среду для непрерывного развития и профессионального роста каждого участника сообщества.</p>
-                </div>
-                
-                <div class="value-card">
-                    <div class="value-icon">
-                        <i class="fas fa-code-branch"></i>
-                    </div>
-                    <h3 class="value-title">Open Source</h3>
-                    <p>Поддерживаем философию открытого кода и вносим вклад в развитие технологического сообщества.</p>
+                    <h3 class="value-title">Энтузиазм</h3>
+                    <p>Мы делаем то, что любим, и любим то, что делаем. Наш главный двигатель - страсть к IT.</p>
                 </div>
             </div>
         </div>
     </section>
     
-    <section class="stats-section">
+    <section class="projects-section">
         <div class="container">
-            <h2 class="section-title">Мы в <span>цифрах</span></h2>
+            <h2 class="section-title">Наши <span>проекты</span></h2>
             
-            <div class="stats-grid">
-                <div class="stat-item">
-                    <div class="stat-number" id="membersCount">0</div>
-                    <div class="stat-label">Участников</div>
-                </div>
-                
-                <div class="stat-item">
-                    <div class="stat-number" id="projectsCount">0</div>
-                    <div class="stat-label">Проектов</div>
-                </div>
-                
-                <div class="stat-item">
-                    <div class="stat-number" id="eventsCount">0</div>
-                    <div class="stat-label">Мероприятий</div>
-                </div>
-                
-                <div class="stat-item">
-                    <div class="stat-number" id="contributionsCount">0</div>
-                    <div class="stat-label">Контрибьюшнов</div>
-                </div>
+            <div class="project-card">
+                <h3 class="project-title">IT-Hui Learning Platform</h3>
+                <span class="project-status">В разработке</span>
+                <p>Полностью бесплатная платформа с онлайн-курсами, материалами для обучения и интерактивными заданиями. Мы работаем над созданием качественного контента по программированию, веб-разработке и дизайну.</p>
+                <p>На текущий момент мы активно разрабатываем базовую функциональность и готовим первые курсы для запуска.</p>
+            </div>
+            
+            <div class="project-card">
+                <h3 class="project-title">Open Source Библиотека компонентов</h3>
+                <span class="project-status">В планах</span>
+                <p>Библиотека UI-компонентов с открытым исходным кодом для быстрой разработки интерфейсов. Планируем сделать удобный конструктор интерфейсов на основе этих компонентов.</p>
             </div>
         </div>
     </section>
@@ -444,31 +565,25 @@
             <h2 class="section-title">Присоединяйтесь <span>к нам</span></h2>
             
             <div class="join-content">
-                <p>Станьте частью нашего растущего сообщества разработчиков, создающих будущее вместе.</p>
+                <p>Следите за нашим прогрессом, предлагайте идеи или просто общайтесь с нами в Telegram.</p>
                 
                 <div class="social-links">
-                    <a href="https://discord.gg/it-hui" class="social-link">
-                        <i class="fab fa-discord"></i>
-                    </a>
                     <a href="https://github.com/IT-Hui-Community" class="social-link">
                         <i class="fab fa-github"></i>
                     </a>
                     <a href="https://t.me/it_hui_community" class="social-link">
                         <i class="fab fa-telegram"></i>
                     </a>
-                    <a href="https://vk.com/it_hui" class="social-link">
-                        <i class="fab fa-vk"></i>
-                    </a>
                 </div>
                 
-                <div class="discord-embed">
-                    <div class="discord-icon">
-                        <i class="fab fa-discord"></i>
+                <div class="telegram-embed">
+                    <div class="telegram-icon">
+                        <i class="fab fa-telegram"></i>
                     </div>
-                    <div class="discord-content">
-                        <h3>Наш Discord сервер</h3>
-                        <p>Присоединяйтесь к нашему активному Discord-сообществу, где мы обсуждаем проекты, помогаем друг другу и проводим голосования.</p>
-                        <a href="https://discord.gg/it-hui" class="cta-button">Присоединиться</a>
+                    <div class="telegram-content">
+                        <h3>Наш Telegram-канал</h3>
+                        <p>Присоединяйтесь к нашему Telegram-сообществу, где мы делимся новостями о прогрессе разработки и общаемся с комьюнити.</p>
+                        <a href="https://t.me/it_hui_community" class="cta-button">Присоединиться</a>
                     </div>
                 </div>
             </div>
@@ -480,8 +595,7 @@
             <div class="footer-logo">IT-<span>Hui</span></div>
             <ul class="footer-links">
                 <li><a href="../index.html">Главная</a></li>
-                <li><a href="members.html">Участники</a></li>
-                <li><a href="events.html">Мероприятия</a></li>
+                <li><a href="members.html">Участники</a></li> 
                 <li><a href="projects.html">Проекты</a></li>
                 <li><a href="#">О нас</a></li>
             </ul>
@@ -490,8 +604,7 @@
     </footer>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Анимация появления элементов при скролле
+        document.addEventListener('DOMContentLoaded', function() { 
             const observerOptions = {
                 root: null,
                 rootMargin: '0px',
@@ -506,58 +619,19 @@
                 });
             }, observerOptions);
             
-            // Наблюдаем за элементами таймлайна
-            document.querySelectorAll('.timeline-item').forEach(item => {
-                observer.observe(item);
+ 
+            document.querySelectorAll('.team-member').forEach(member => {
+                observer.observe(member);
             });
-            
-            // Наблюдаем за карточками ценностей
+             
             document.querySelectorAll('.value-card').forEach(card => {
                 observer.observe(card);
             });
-            
-            // Наблюдаем за статистикой
-            document.querySelectorAll('.stat-item').forEach(stat => {
-                observer.observe(stat);
+             
+            document.querySelectorAll('.project-card').forEach(card => {
+                observer.observe(card);
             });
-            
-            // Анимация счетчиков
-            function animateCounter(elementId, finalValue, duration) {
-                const element = document.getElementById(elementId);
-                const startValue = 0;
-                const increment = Math.ceil(finalValue / (duration / 16)); // 16ms per frame ~60fps
-                let currentValue = startValue;
-                
-                const timer = setInterval(() => {
-                    currentValue += increment;
-                    if (currentValue >= finalValue) {
-                        clearInterval(timer);
-                        currentValue = finalValue;
-                    }
-                    element.textContent = currentValue.toLocaleString();
-                }, 16);
-            }
-            
-            // Запускаем анимацию счетчиков когда они появляются в viewport
-            const statsObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        animateCounter('membersCount', 250, 2000);
-                        animateCounter('projectsCount', 18, 2000);
-                        animateCounter('eventsCount', 12, 2000);
-                        animateCounter('contributionsCount', 1500, 2000);
-                        statsObserver.unobserve(entry.target);
-                    }
-                });
-            }, observerOptions);
-            
-            // Наблюдаем за секцией статистики
-            const statsSection = document.querySelector('.stats-section');
-            if (statsSection) {
-                statsObserver.observe(statsSection);
-            }
-            
-            // Обработчик для мобильного меню
+             
             document.querySelector('.hamburger').addEventListener('click', function() {
                 document.querySelector('.nav-links').classList.toggle('active');
             });
